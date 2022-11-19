@@ -1,7 +1,9 @@
 require_relative 'Color.rb'
+require_relative 'Hint.rb'
 
 class Computer
     include Color
+    include Hint
 
     @@code = Array.new
 
@@ -15,12 +17,21 @@ class Computer
 
     def display_code
         @@code.each do |elem|
-            print apply_color(elem.to_s) + " "
+            print "#{apply_color(elem.to_s)} "
         end
         puts
     end
 
-    def show_clue
-        
+    def show_hint(user_code, hints)
+        user_code.each { |elem| print "#{apply_color(elem.to_s)} " }
+        print " "
+
+        hints.each { |hint| print "#{hint} " }
+        puts
     end
+
 end
+
+#code = Computer.new
+#code.generate_code
+#code.display_code
