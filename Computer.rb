@@ -33,7 +33,15 @@ class Computer
     def delete_code
         @@code.clear
     end
-    
+
+    def is_solved?(hints)
+        @right = 0
+
+        hints.each { |hint| @right += 1 if hint == "\u2713".encode('utf-8') }
+
+        true if @right == 4
+
+    end
 end
 
 #code = Computer.new
