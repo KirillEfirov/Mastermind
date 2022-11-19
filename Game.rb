@@ -14,10 +14,22 @@ class Game
     puts
 
     player = Player.new
-    player.guess
 
-    hint = computer.create_hint(computer.get_code, player.user_code)
-    computer.show_hint(player.user_code, hint)
+    12.times do |step|
+      print "##{step + 1}: "
+      player.guess
+
+      hint = computer.create_hint(computer.get_code, player.user_code)
+      computer.show_hint(player.user_code, hint)
+
+      if computer.is_solved?(hint)
+        print "You cracked the code\n\n"
+        break
+      end
+
+      puts
+    end
+
     computer.delete_code
   end
 end
