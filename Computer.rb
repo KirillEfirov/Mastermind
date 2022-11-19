@@ -30,6 +30,10 @@ class Computer
         puts
     end
 
+    def delete_code
+        @@code.clear
+    end
+    
 end
 
 #code = Computer.new
