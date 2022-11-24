@@ -8,7 +8,7 @@ class Game
     computer = Computer.new
     computer.generate_code
     puts "Code was generated"
-    computer.display_code
+    #computer.display_code
 
     puts "Let's start!"
     puts
@@ -23,8 +23,12 @@ class Game
       computer.show_hint(player.user_code, hint)
 
       if computer.is_solved?(hint)
-        print "You cracked the code\n\n"
+        print "\nYou cracked the code\n\n"
         break
+      end
+
+      if step == 12 && !computer.is_solved?(hint)
+        print "\nYou didnt't hack the code\n\n"
       end
 
       puts
