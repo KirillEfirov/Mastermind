@@ -3,11 +3,6 @@ class Player
 
     def guess
         print "Enter a code: "
-        @user_code = gets.chomp!
+        @user_code = gets.chomp!.split("").map { |elem| elem.to_i }
     end
-
 end
-
-#user = Player.new
-#user.guess
-#puts user.user_code
