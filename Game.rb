@@ -27,7 +27,9 @@ class Game
         break
       end
 
-      if step == 12 && !computer.is_solved?(hint)
+      if (step == 11 && !computer.is_solved?(hint))
+        print "\nComputer code: "
+        computer.display_code
         print "\nYou didnt't hack the code\n\n"
       end
 
