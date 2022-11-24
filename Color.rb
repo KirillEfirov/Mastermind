@@ -13,6 +13,8 @@ module Color
             "\e[45m  #{mytext}  \e[0m"
         when "6"
             "\e[46m  #{mytext}  \e[0m"
+        when "RULES"
+            "\e[46m  #{mytext}  \e[0m"
         end
     end
 end
