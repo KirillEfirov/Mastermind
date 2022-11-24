@@ -1,5 +1,5 @@
 module Hint
-    def add_hint(computer_code, user_guess)
+    def create_hint(computer_code, user_guess)
         computer_clone = computer_code.clone
         user_clone = user_guess.clone
     
@@ -29,7 +29,6 @@ module Hint
             end
         end
     
-        print "Hint: #{hint}\n"
-        puts
+        hint
     end
 end
