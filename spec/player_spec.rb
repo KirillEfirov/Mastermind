@@ -1,26 +1,19 @@
-# frozen_string_literal: true
+# rubocop:disable Style/FrozenStringLiteralComment
 
 require 'spec_helper'
 require_relative '../player'
 
 describe Player do
-  subject(:computer) { described_class.instance }
+  subject(:player) { described_class.new }
 
   describe '#guess' do
-    subject(:code) { computer.generate_code }
+    before { allow_any_instance_of(Kernel).to receive(:gets).and_return("1234\n") }
 
-    it 'generates random code of size 4' do
-      expect(code.size).to eq 4
-    end
+    it 'reads user input and converts it into an array of integers' do
+      player.guess
 
-    it { is_expected.to be_an Array }
-
-    it 'generates random code with numbers only' do
-      code.each { |number| expect(number).to be_an Integer }
-    end
-
-    it 'generates random code with numbers from 1 to 6' do
-      code.each { |number| expect(number).to be_between(1, 6).inclusive }
+      expect(player.user_code).to eq([1, 2, 3, 4])
     end
   end
 end
+# rubocop:enable Style/FrozenStringLiteralComment
